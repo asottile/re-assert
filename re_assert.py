@@ -1,5 +1,6 @@
+from __future__ import annotations
+
 from typing import Any
-from typing import Optional
 from typing import Pattern
 
 import regex
@@ -8,7 +9,7 @@ import regex
 class Matches:  # TODO: Generic[AnyStr] (binary pattern support)
     def __init__(self, pattern: str, *args: Any, **kwargs: Any) -> None:
         self._pattern = regex.compile(pattern, *args, **kwargs)
-        self._fail: Optional[str] = None
+        self._fail: str | None = None
         self._type = type(pattern)
 
     def _fail_message(self, fail: str) -> str:
@@ -63,5 +64,5 @@ class Matches:  # TODO: Generic[AnyStr] (binary pattern support)
         assert self == s, self._fail
 
     @classmethod
-    def from_pattern(cls, pattern: Pattern[str]) -> 'Matches':
+    def from_pattern(cls, pattern: Pattern[str]) -> Matches:
         return cls(pattern.pattern, pattern.flags)
