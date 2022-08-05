@@ -9,7 +9,9 @@ show where your regex match assertion failed!
 
 ## installation
 
-`pip install re-assert`
+```bash
+pip install re-assert
+```
 
 ## usage
 
