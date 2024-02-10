@@ -3,7 +3,10 @@ from __future__ import annotations
 from typing import Any
 from typing import Pattern
 
-import regex
+try:
+    import regex
+except ImportError:
+    import re as regex
 
 
 class Matches:  # TODO: Generic[AnyStr] (binary pattern support)
