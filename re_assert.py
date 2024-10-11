@@ -1,7 +1,7 @@
 from __future__ import annotations
 
+from re import Pattern
 from typing import Any
-from typing import Pattern
 
 import regex
 
