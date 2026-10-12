@@ -52,8 +52,7 @@ class Matches:  # TODO: Generic[AnyStr] (binary pattern support)
         pattern_repr = repr(self._pattern)
         params = pattern_repr[pattern_repr.index('(') + 1:-1]
         boring_flag = ', flags=regex.V0'
-        if params.endswith(boring_flag):
-            params = params[:-1 * len(boring_flag)]
+        params = params.removesuffix(boring_flag)
         if self._fail is not None:
             fail_msg = '    #'.join(['\n'] + self._fail.splitlines(True))
         else:
